@@ -5,8 +5,8 @@ This API fetches product data from external providers and have routes for purcha
 ## Table of Contents
 
 1. [Project Setup](#project-setup)
-1. [Project Dependencies](#project-dependencies)
-1. [Project Structure](#project-structure)
+2. [Project Dependencies](#project-dependencies)
+3. [Project Structure](#project-structure)
 
 ## How to run this project <a name="project-setup">
 
@@ -23,12 +23,12 @@ By default the server will run at port 3000, you can change it.
 
 ## Project Dependencies <a name="project-dependencies"></a>
 
-A few dependencies were used in this project:
+A few dependencies were used in this project, some are worth mentioning:
 
-[Axios](axios-http.com), for fetching data.
-[Express](expressjs.com), a framework to help with HTTP handling.
-[TypeScript](typescriptlang.org), to enforce types on some objects and give more structure.
-[Nodemon](nodemon.io), for better debugging and hot reload.
+- [Axios](axios-http.com), for fetching data.
+- [Express](expressjs.com), a framework to help with HTTP handling.
+- [TypeScript](typescriptlang.org), to enforce types on some objects and give more structure.
+- [Nodemon](nodemon.io), for better debugging and hot reload.
 
 ## Project Structure <a name="project-structure"></a>
 
