@@ -10,11 +10,11 @@ This API fetches product data from external providers and have routes for purcha
 
 ## How to run this project <a name="project-setup">
 
-First you need to make sure that you have [NodeJS](nodejs.org) installed.
+First you need to make sure that you have [NodeJS](https://nodejs.org) installed.
 
 Then we will install the dependencies, and as soon as its finished, start the server.
 
-```shell
+```bas
 	npm install
 	npm start
 ```
@@ -25,10 +25,10 @@ By default the server will run at port 3000, you can change it.
 
 A few dependencies were used in this project, some are worth mentioning:
 
-- [Axios](axios-http.com), for fetching data.
-- [Express](expressjs.com), a framework to help with HTTP handling.
-- [TypeScript](typescriptlang.org), to enforce types on some objects and give more structure.
-- [Nodemon](nodemon.io), for better debugging and hot reload.
+- [Axios](https://axios-http.com), for fetching data.
+- [Express](https://expressjs.com), a framework to help with HTTP handling.
+- [TypeScript](https://typescriptlang.org), to enforce types on some objects and give more structure.
+- [Nodemon](https://nodemon.io), for better debugging and hot reload.
 
 ## Project Structure <a name="project-structure"></a>
 
