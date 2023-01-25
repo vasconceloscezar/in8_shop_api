@@ -1,0 +1,18 @@
+{
+  "name": "e-commerce-api",
+  "version": "1.0.0",
+  "description": "API for ecommerce integration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "api",
+    "ecomerce",
+    "in8",
+    "fullstack",
+    "dev"
+  ],
+  "author": "Cezar Vasconcelos",
+  "license": "ISC"
+}
