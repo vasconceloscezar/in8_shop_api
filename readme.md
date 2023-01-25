@@ -2,9 +2,14 @@
 
 This API fetches product data from external providers and have routes for purchasing and product filtering.
 
-## How to run this project
+## Table of Contents
 
-First you need to make sure that you have [NodeJS]() installed.
+1. [Project Setup](#project-setup)
+2. [Project Structure](#project-structure)
+
+## How to run this project <a name="project-setup">
+
+First you need to make sure that you have [NodeJS](nodejs.org) installed.
 
 Then we will install the dependencies, and as soon as its finished, start the server.
 
@@ -15,17 +20,28 @@ Then we will install the dependencies, and as soon as its finished, start the se
 
 By default the server will run at port 3000, you can change it.
 
-## To-Do
+## Project Structure <a name="project-structure"></a>
 
-- [ ] Fetch products from external APIs
+```bash
+src
+    └───main
+        ├───adapters
+        ├───config
+        ├───factories
+        ├───middleware
+        ├───presentation
+        │   ├───controllers
+        │   ├───errors
+        │   ├───helpers
+        │   └───protocols
+        └───routes
+```
 
-- [ ] Join external data
+The entry point is the [server.ts](./src/main/server.ts) file.
 
-- [ ] Recieve query filters
+Each route is a file placed in the [routes](./src/main/routes/) folder.
 
-- [ ] Filter products and paginate them (remember to sort before paginating)
-
-- [ ] Load Products (with filters)
+Routes are created using a Controller, that is generated trough [factories](./src/main/factories/).
 
 # Vaga para Desenvolvedor Júnior
 
