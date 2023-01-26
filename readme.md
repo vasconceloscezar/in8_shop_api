@@ -15,12 +15,12 @@ First you need to make sure that you have [NodeJS](https://nodejs.org) installed
 
 Then we will install the dependencies, and as soon as its finished, start the server.
 
-```bas
-	npm install
-	npm start
+```bash
+npm install
+npm start
 ```
 
-By default the server will run at port 3000, you can change it.
+By default the server will run at port 3000.
 
 ## Project Decisions <a name="project-decisions"></a>
 
@@ -34,6 +34,14 @@ It will be easier to maintain this and if any provider change, we can just remov
 
 Also, from each provider, we are adding an suffix to each ID, to know where this product came from.
 So for an product of a BR provider, the ID goes from `23` to `23-BR`.
+
+### Filtering and Paginating
+
+We are retrieving all data at once, and it's better to paginate them at server side.
+
+The consumer just need to provide the `limit` and `page` and we'll do the rest.
+
+Also, filtering is enabled, just provide `id`, `name` or `description` as strings, and the values are filtered.
 
 ## Project Dependencies <a name="project-dependencies"></a>
 
