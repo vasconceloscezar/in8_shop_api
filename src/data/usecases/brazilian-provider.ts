@@ -35,12 +35,17 @@ export class BrazilianProvider implements ProductProvider {
   }
 
   async loadProducts (): Promise<Product[]> {
-    const data = await this.get(env.providersURL.brazilian).then(res => res.data)
-    const mappedProducts = data.map((product: ProductBrazilianProvider) => {
-      if (!product.nome) return null
-      return this.parseProduct(product)
-    })
-    return mappedProducts.filter((product: Product) => product !== null)
+    try {
+      const data = await this.get(env.providersURL.brazilian).then(res => res.data)
+      const mappedProducts = data.map((product: ProductBrazilianProvider) => {
+        if (!product.nome) return null
+        return this.parseProduct(product)
+      })
+      return mappedProducts.filter((product: Product) => product !== null)
+    } catch (error) {
+      console.error('Problem loading brazilian products', error.message)
+      return []
+    }
   }
 
   async loadProductById (id: string): Promise<any> {
