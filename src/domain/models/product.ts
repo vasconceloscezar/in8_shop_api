@@ -10,7 +10,7 @@ export type Product = {
 }
 
 export interface Details {
-  departament: string
-  adjective: string
-  material: string
+  departament?: string
+  adjective?: string
+  material?: string
 }
