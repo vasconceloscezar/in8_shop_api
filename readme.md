@@ -33,7 +33,13 @@ A few dependencies were used in this project, some are worth mentioning:
 ## Project Structure <a name="project-structure"></a>
 
 ```bash
-src
+└───src
+    ├───data
+    │   ├───protocols
+    │   │   └───providers
+    │   └───usecases
+    ├───domain
+    │   └───models
     └───main
         ├───adapters
         ├───config
@@ -52,6 +58,10 @@ The entry point is the [server.ts](./src/main/server.ts) file.
 Each route is a file placed in the [routes](./src/main/routes/) folder.
 
 Routes are created using a Controller, that is generated trough [factories](./src/main/factories/).
+
+Data is where info related to external info is stored, we have a [protocols](./src/data/protocols/) to create contracts, and [usecases](./src/data/usecases/) to create our classes.
+
+In the Domain folder, we set our [models](./src/domain/models/), that are our responsability.
 
 # Vaga para Desenvolvedor Júnior
 
