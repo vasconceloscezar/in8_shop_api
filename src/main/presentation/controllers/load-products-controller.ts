@@ -8,7 +8,7 @@ export class LoadProductsController implements Controller {
     private readonly productProviders: ProductProvider[]
   ) {}
 
-  async loadProductsFromAllProviders (): Promise<Product[]> {
+  private async loadProductsFromAllProviders (): Promise<Product[]> {
     const products = await Promise.all(this.productProviders.map(async provider => provider.loadProducts()))
     return products.flat()
   }
