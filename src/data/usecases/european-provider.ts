@@ -36,12 +36,17 @@ export class EuropeanProvider implements ProductProvider {
   }
 
   async loadProducts (): Promise<Product[]> {
-    const data = await this.get(env.providersURL.european).then(res => res.data)
-    const mappedProducts = data.map((product: ProductEuropeanProvider) => {
-      if (!product.name) return null
-      return this.parseProduct(product)
-    })
-    return mappedProducts.filter((product: Product) => product !== null)
+    try {
+      const data = await this.get(env.providersURL.european).then(res => res.data)
+      const mappedProducts = data.map((product: ProductEuropeanProvider) => {
+        if (!product.name) return null
+        return this.parseProduct(product)
+      })
+      return mappedProducts.filter((product: Product) => product !== null)
+    } catch (error) {
+      console.error('Problem loading european products', error.message)
+      return []
+    }
   }
 
   async loadProductById (id: string): Promise<any> {
