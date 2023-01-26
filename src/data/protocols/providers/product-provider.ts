@@ -1,4 +1,6 @@
+import { type Product } from '@/domain/models'
+
 export interface ProductProvider {
-  loadProducts: () => Promise<any[]>
-  loadProductById: (id: string) => Promise<any>
+  loadProducts: () => Promise<Product[]>
+  loadProductById: (id: string) => Promise<Product>
 }
