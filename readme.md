@@ -2,17 +2,16 @@
 
 This API fetches product data from external providers and have routes for purchasing and product filtering.
 
-## Table of Contents
+> ## Table of Contents
 
 - [Project Setup](#project-setup)
 - [Project Decisions](#project-decisions)
 - [Project Dependencies](#project-dependencies)
 - [Project Structure](#project-structure)
 
-## How to run this project <a name="project-setup">
+> ## How to run this project <a name="project-setup">
 
 First you need to make sure that you have [NodeJS](https://nodejs.org) installed.
-
 Then we will install the dependencies, and as soon as its finished, start the server.
 
 ```bash
@@ -22,28 +21,29 @@ npm start
 
 By default the server will run at port 3000.
 
-## Project Decisions <a name="project-decisions"></a>
+> ## Project Decisions <a name="project-decisions"></a>
 
 ### Loading from providers
 
 Since we have two providers, and each have it's own data model, a class was created for each provider, to fetch the data and then parse it.
-
 This way we just pass an array of `providers` to our `LoadProductController` and load all products from there.
-
 It will be easier to maintain this and if any provider change, we can just remove from the factory or add to it.
-
 Also, from each provider, we are adding an suffix to each ID, to know where this product came from.
 So for an product of a BR provider, the ID goes from `23` to `23-BR`.
 
+### Caching Data
+
+To avoid unecessary provider calls, all products are being cached. 
+This improves the request time and after 10 mins the cache is released. 
 ### Filtering and Paginating
 
 We are retrieving all data at once, and it's better to paginate them at server side.
-
 The consumer just need to provide the `limit` and `page` and we'll do the rest.
-
 Also, filtering is enabled, just provide `id`, `name` or `description` as strings, and the values are filtered.
 
-## Project Dependencies <a name="project-dependencies"></a>
+
+
+> ## Project Dependencies <a name="project-dependencies"></a>
 
 A few dependencies were used in this project, some are worth mentioning:
 
@@ -51,8 +51,9 @@ A few dependencies were used in this project, some are worth mentioning:
 - [Express](https://expressjs.com), a framework to help with HTTP handling.
 - [TypeScript](https://typescriptlang.org), to enforce types on some objects and give more structure.
 - [Nodemon](https://nodemon.io), for better debugging and hot reload.
+- [Node-Cache](https://github.com/node-cache/node-cache), for caching fetched data and avoid unecessary calls (setted for refetch after 10 mins).
 
-## Project Structure <a name="project-structure"></a>
+> ## Project Structure <a name="project-structure"></a>
 
 ```bash
 └───src
@@ -76,13 +77,9 @@ A few dependencies were used in this project, some are worth mentioning:
 ```
 
 The entry point is the [server.ts](./src/main/server.ts) file.
-
 Each route is a file placed in the [routes](./src/main/routes/) folder.
-
 Routes are created using a Controller, that is generated trough [factories](./src/main/factories/).
-
 Data is where info related to external info is stored, we have a [protocols](./src/data/protocols/) to create contracts, and [usecases](./src/data/usecases/) to create our classes.
-
 In the Domain folder, we set our [models](./src/domain/models/), that are our responsability.
 
 # Vaga para Desenvolvedor Júnior
