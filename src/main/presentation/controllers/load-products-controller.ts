@@ -1,4 +1,5 @@
 import { type ProductProvider } from '@/data/protocols'
+import { type MemoryCache } from '@/data/protocols/memory-cache'
 import { type Product } from '@/domain/models'
 import { sortProductsById } from '@/utils/sorter'
 import { ok, serverError } from '../helpers/http-helper'
@@ -6,13 +7,16 @@ import { type PaginationOptions, type Controller, type HttpResponse } from '../p
 
 export class LoadProductsController implements Controller {
   constructor (
-    private readonly productProviders: ProductProvider[]
+    private readonly productProviders: ProductProvider[],
+    private readonly cacheService: MemoryCache
   ) {}
 
   async handle (request: LoadProductsController.Request): Promise<HttpResponse> {
     try {
       const { limit = '20' , page = '1' , name, id, description } = request
-      let products = await this.loadProductsFromAllProviders()
+      console.time('load-products')
+      let products = await this.loadProducts()
+      console.timeEnd('load-products')
       products = sortProductsById(products)
       const filters = {
         name, id, description
@@ -32,10 +36,16 @@ export class LoadProductsController implements Controller {
     }
   }
 
-  private async loadProductsFromAllProviders (): Promise<Product[]> {
-    console.time('load-products')
+  private async loadProducts (): Promise<Product[]> {
+    const cachedProducts = await this.cacheService.get('products')
+    if (cachedProducts) return cachedProducts
+    const products = await this.loadProductsFromProviders()
+    await this.cacheService.set('products', products)
+    return products
+  }
+
+  private async loadProductsFromProviders (): Promise<Product[]> {
     const products = await Promise.all(this.productProviders.map(async provider => provider.loadProducts()))
-    console.timeEnd('load-products')
     return products.flat()
   }
 
