@@ -1,4 +1,5 @@
 export default {
+  mongoURI: process.env.MONGO_URI,
   port: process.env.PORT ?? 3000,
   providersURL: {
     brazilian: 'http://616d6bdb6dacbb001794ca17.mockapi.io/devnology/brazilian_provider/',
