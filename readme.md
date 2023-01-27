@@ -60,7 +60,7 @@ This will start a MongoDB container and make it accessible on port `27017`.
 And we will update our `.ENV` file to look like this:
 
 ```env
-MONGO_URI=mongodb://host.docker.internal:27017
+MONGO_URI="mongodb://host.docker.internal:27017"
 ```
 ### Running With Node <a name="using-node">
 
