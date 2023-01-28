@@ -9,9 +9,11 @@
     "baseUrl": "src",
     "paths": {
       "@/tests/*": ["../tests/*"],
-      "@/*": ["*"]
+      "@/*": ["*"],
+      "@/infra":  ["./src/infra"]
     },
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "noImplicitAny": false
   },
   "include": ["src", "tests"],
   "exclude": []
