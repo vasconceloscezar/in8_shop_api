@@ -29,7 +29,9 @@ export class LoadProductsController implements Controller {
       const paginatedProducts = this.paginateProducts(filteredProducts,paginateOptions)
       return ok({
         totalProducts: filteredProducts.length,
-        products: paginatedProducts
+        products: paginatedProducts,
+        currentPage: paginateOptions.page,
+        totalPages: (filteredProducts.length / paginateOptions.limit)
       })
     } catch (err: any) {
       return serverError(err)
