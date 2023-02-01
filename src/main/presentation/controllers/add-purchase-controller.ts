@@ -8,7 +8,7 @@ export class AddPurchaseController implements Controller {
     private readonly addPurchase: AddPurchase
   ) {}
 
-  async handle (request: SavePurchaseController.Request): Promise<HttpResponse> {
+  async handle (request: AddPurchaseController.Request): Promise<HttpResponse> {
     try {
       // const { limit = '20' , page = '1' , name, id, description } = request
       console.log(request)
@@ -25,7 +25,7 @@ export class AddPurchaseController implements Controller {
   }
 }
 
-export namespace SavePurchaseController {
+export namespace AddPurchaseController {
   export type Request = {
     cart: Cart
     user: User
