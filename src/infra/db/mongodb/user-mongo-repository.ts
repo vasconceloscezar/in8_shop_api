@@ -1,7 +1,9 @@
-import { type LoadUserByEmailRepository, type AddUserRepository, type CheckUserByEmailRepository, type UpdateAccessTokenRepository } from '@/data/protocols'
 import { MongoHelper } from '@/infra/db'
+import { type LoadUserByEmailRepository, type AddUserRepository, type CheckUserByEmailRepository, type UpdateAccessTokenRepository } from '@/data/protocols/db'
 
-export class UserMongoRepository implements AddUserRepository, LoadUserByEmailRepository, CheckUserByEmailRepository, UpdateAccessTokenRepository {
+class UserMongoRepository implements AddUserRepository, LoadUserByEmailRepository, CheckUserByEmailRepository, UpdateAccessTokenRepository {
+  // eslint-disable-next-line @typescript-eslint/no-useless-constructor
+  constructor () {}
   async add (data: AddUserRepository.Params): Promise<AddUserRepository.Result> {
     const userCollection = MongoHelper.getCollection('users')
     const result = await userCollection.insertOne(data)
@@ -45,3 +47,5 @@ export class UserMongoRepository implements AddUserRepository, LoadUserByEmailRe
     })
   }
 }
+
+export { UserMongoRepository }
