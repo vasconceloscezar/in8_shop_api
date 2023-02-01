@@ -98,6 +98,9 @@ Also, filtering is enabled, just provide `id`, `name` or `description` as string
 
 We are using `jsonwebtoken` to generate an `jwt` token to future access on our application and and `bcrypt` to encrypt the password on the database. 
 
+### Purchase products
+
+To purchase items, users need to have an account and be logged in, and pass the `accessToken` via headers on the `/purchase` route. 
 
 > ## Project Dependencies <a name="project-dependencies"></a>
 
