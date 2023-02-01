@@ -1,14 +1,14 @@
 import { type Cart, type User } from '@/domain/models'
 import { type AddPurchase } from '@/domain/usecases'
-import { ok, serverError } from '@/main/presentation/helpers/http-helper'
-import { type Controller, type HttpResponse } from '@/main/presentation/protocols'
+import { ok, serverError } from '@/presentation/helpers/http-helper'
+import { type Controller, type HttpResponse } from '@/presentation/protocols'
 
 export class AddPurchaseController implements Controller {
   constructor (
     private readonly addPurchase: AddPurchase
   ) {}
 
-  async handle (request: SavePurchaseController.Request): Promise<HttpResponse> {
+  async handle (request: AddPurchaseController.Request): Promise<HttpResponse> {
     try {
       // const { limit = '20' , page = '1' , name, id, description } = request
       console.log(request)
@@ -25,7 +25,7 @@ export class AddPurchaseController implements Controller {
   }
 }
 
-export namespace SavePurchaseController {
+export namespace AddPurchaseController {
   export type Request = {
     cart: Cart
     user: User

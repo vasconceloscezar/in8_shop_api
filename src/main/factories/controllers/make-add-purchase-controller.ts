@@ -1,6 +1,6 @@
-import { AddPurchaseController } from '../../presentation/controllers'
-import { type Controller } from '../../presentation/protocols'
-import { makeDbAddPurchase } from '../usecases/make-db-add-purchase-factory'
+import { AddPurchaseController } from '@/presentation/controllers'
+import { type Controller } from '@/presentation/protocols'
+import { makeDbAddPurchase } from '@/main/factories/usecases/make-db-add-purchase-factory'
 
 export const makeAddPurchaseController = (): Controller => {
   const dbAddPurchase = makeDbAddPurchase()

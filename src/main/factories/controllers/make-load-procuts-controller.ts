@@ -1,5 +1,5 @@
-import { LoadProductsController } from '@/main/presentation/controllers'
-import { type Controller } from '@/main/presentation/protocols'
+import { LoadProductsController } from '@/presentation/controllers'
+import { type Controller } from '@/presentation/protocols'
 import { makeBrazilianProvider } from '@/main/factories/usecases/make-brazilian-provider'
 import { makeCacheService } from '@/main/factories/usecases/make-cache'
 import { makeEuropeanProvider } from '@/main/factories/usecases/make-european-provider'
