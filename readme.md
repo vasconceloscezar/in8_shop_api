@@ -94,6 +94,9 @@ We are retrieving all data at once, and it's better to paginate them at server s
 The consumer just need to provide the `limit` and `page` and we'll do the rest.
 Also, filtering is enabled, just provide `id`, `name` or `description` as strings, and the values are filtered.
 
+### SignUp and LogIn 
+
+We are using `jsonwebtoken` to generate an `jwt` token to future access on our application and and `bcrypt` to encrypt the password on the database. 
 
 
 > ## Project Dependencies <a name="project-dependencies"></a>
