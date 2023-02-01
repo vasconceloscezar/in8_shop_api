@@ -111,9 +111,9 @@ A few dependencies were used in this project, some are worth mentioning:
 - [TypeScript](https://typescriptlang.org), to enforce types on some objects and give more structure.
 - [Nodemon](https://nodemon.io), for better debugging and hot reload.
 - [Node-Cache](https://github.com/node-cache/node-cache), for caching fetched data and avoid unecessary calls (setted for refetch after 10 mins).
-- [Node-Cache](https://github.com/node-cache/node-cache), for caching fetched data and avoid unecessary calls (setted for refetch after 10 mins).
 - [Docker](https://www.docker.com), for containerize our application. 
 - [MongoDB](https://www.mongodb.com/docs/manual/installation/), as our database.
+
 > ## Project Structure <a name="project-structure"></a>
 
 ```bash
