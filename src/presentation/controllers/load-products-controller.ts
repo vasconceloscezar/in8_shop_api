@@ -27,9 +27,12 @@ export class LoadProductsController implements Controller {
         page: limit ? parseInt(page) : 1
       }
       const paginatedProducts = this.paginateProducts(filteredProducts,paginateOptions)
+
       return ok({
+        currentPage: paginateOptions.page,
+        totalPages: (filteredProducts.length / paginateOptions.limit),
         totalProducts: filteredProducts.length,
-        products: paginatedProducts
+        products: paginatedProducts.map(prod => ({ ...prod, image_url: prod.images[0], price: prod.price.toFixed(2) }))
       })
     } catch (err: any) {
       return serverError(err)
