@@ -1,7 +1,7 @@
 import { MongoHelper } from '@/infra/db'
-import { type LoadUserByEmailRepository, type AddUserRepository, type CheckUserByEmailRepository, type UpdateAccessTokenRepository } from '@/data/protocols/db'
+import { type LoadUserByEmailRepository, type AddUserRepository, type CheckUserByEmailRepository, type UpdateAccessTokenRepository, type LoadUserByTokenRepository } from '@/data/protocols/db'
 
-class UserMongoRepository implements AddUserRepository, LoadUserByEmailRepository, CheckUserByEmailRepository, UpdateAccessTokenRepository {
+class UserMongoRepository implements AddUserRepository, LoadUserByEmailRepository, LoadUserByTokenRepository, CheckUserByEmailRepository, UpdateAccessTokenRepository {
   // eslint-disable-next-line @typescript-eslint/no-useless-constructor
   constructor () {}
   async add (data: AddUserRepository.Params): Promise<AddUserRepository.Result> {
@@ -45,6 +45,23 @@ class UserMongoRepository implements AddUserRepository, LoadUserByEmailRepositor
         accessToken: token
       }
     })
+  }
+
+  async loadByToken (token: string, role?: string): Promise<LoadUserByTokenRepository.Result> {
+    const userColecction = MongoHelper.getCollection('users')
+    const user = await userColecction.findOne({
+      accessToken: token,
+      $or: [{
+        role
+      }, {
+        role: 'admin'
+      }]
+    }, {
+      projection: {
+        _id: 1
+      }
+    })
+    return user && MongoHelper.map(user)
   }
 }
 
