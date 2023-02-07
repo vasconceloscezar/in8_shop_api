@@ -15,11 +15,14 @@ export class SignUpController implements Controller {
       const error = this.validation.validate(request)
       if (error) return badRequest(error)
 
-      const { name, email, password } = request
+      const { name, email, password, address, lastName, phoneNumber } = request
       const isValid = await this.addUser.add({
         name,
         email,
-        password
+        password,
+        address,
+        lastName,
+        phoneNumber
       })
       if (!isValid) return forbidden(new EmailInUseError())
 
@@ -40,5 +43,8 @@ export namespace SignUpControllerController {
     name: string
     email: string
     password: string
+    address: string
+    lastName: string
+    phoneNumber: string
   }
 }

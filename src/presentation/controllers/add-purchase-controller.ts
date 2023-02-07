@@ -6,18 +6,16 @@ import { type Controller, type HttpResponse } from '@/presentation/protocols'
 export class AddPurchaseController implements Controller {
   constructor (
     private readonly addPurchase: AddPurchase
+    // private readonly loadUserByToken: LoadUserByToken
   ) {}
 
   async handle (request: AddPurchaseController.Request): Promise<HttpResponse> {
     try {
-      // const { limit = '20' , page = '1' , name, id, description } = request
-      console.log(request)
       const purchase = request
       await this.addPurchase.add(purchase)
 
       return ok({
-        totalProducts: 'filteredProducts.length',
-        products: 'paginatedProducts'
+        message: 'Purchased successful.'
       })
     } catch (err: any) {
       return serverError(err)
@@ -27,6 +25,7 @@ export class AddPurchaseController implements Controller {
 
 export namespace AddPurchaseController {
   export type Request = {
+    accessToken: string
     cart: Cart
     user: User
   }

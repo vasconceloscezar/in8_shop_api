@@ -7,6 +7,9 @@ export namespace AddUser {
     name: string
     email: string
     password: string
+    address: string
+    lastName: string
+    phoneNumber: string
   }
 
   export type Result = boolean
