@@ -1,3 +1,5 @@
+import { type Product } from './product'
+
 export type Cart = {
   items: CartItem[]
   totalItems: number
@@ -5,7 +7,7 @@ export type Cart = {
 }
 
 export type CartItem = {
-  productId: string
+  Product: Product
   price: number
   quantity: number
 }
