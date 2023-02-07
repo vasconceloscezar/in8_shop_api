@@ -11,9 +11,16 @@ export class AddPurchaseController implements Controller {
 
   async handle (request: AddPurchaseController.Request): Promise<HttpResponse> {
     try {
-      const purchase = request
-      await this.addPurchase.add(purchase)
-
+      const { userId, cart, user } = request
+      const purchaseData = {
+        cart,
+        user: {
+          name: user.name,
+          email: user.email,
+          userId
+        }
+      }
+      await this.addPurchase.add(purchaseData)
       return ok({
         message: 'Purchased successful.'
       })
@@ -25,7 +32,7 @@ export class AddPurchaseController implements Controller {
 
 export namespace AddPurchaseController {
   export type Request = {
-    accessToken: string
+    userId: string
     cart: Cart
     user: User
   }
