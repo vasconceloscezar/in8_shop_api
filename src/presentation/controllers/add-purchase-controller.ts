@@ -18,7 +18,8 @@ export class AddPurchaseController implements Controller {
           name: user.name,
           email: user.email,
           userId
-        }
+        },
+        purchaseDate: new Date()
       }
       await this.addPurchase.add(purchaseData)
       console.log(`New purchase made of R$${purchaseData.cart.totalPrice}`)

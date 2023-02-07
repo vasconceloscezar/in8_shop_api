@@ -5,4 +5,5 @@ export type Purchase = {
   id: string
   cart: Cart
   user: User
+  purchaseDate: Date
 }
