@@ -18,6 +18,7 @@ export class LoginController implements Controller {
       if (!auth) {
         return unauthorized()
       }
+      console.log(`User logged in: ${request.email}`)
       return ok(auth)
     } catch (error) {
       return serverError(error)

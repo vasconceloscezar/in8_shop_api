@@ -25,7 +25,7 @@ export class SignUpController implements Controller {
         phoneNumber
       })
       if (!isValid) return forbidden(new EmailInUseError())
-
+      console.log(`New user created: ${request.email}`)
       const auth = await this.authentication.auth({
         email,
         password

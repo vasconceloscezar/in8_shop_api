@@ -21,6 +21,7 @@ export class AddPurchaseController implements Controller {
         }
       }
       await this.addPurchase.add(purchaseData)
+      console.log(`New purchase made of R$${purchaseData.cart.totalPrice}`)
       return ok({
         message: 'Purchased successful.'
       })
