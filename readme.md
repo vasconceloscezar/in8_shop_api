@@ -120,65 +120,44 @@ A few dependencies were used in this project, some are worth mentioning:
 └───src
     ├───data
     │   ├───protocols
+    │   │   ├───cryptography
+    │   │   ├───db
+    │   │   │   ├───purchases
+    │   │   │   └───users
     │   │   └───providers
     │   └───usecases
     ├───domain
-    │   └───models
-    └───main
-        ├───adapters
-        ├───config
-        ├───factories
-        ├───middleware
-        ├───presentation
-        │   ├───controllers
-        │   ├───errors
-        │   ├───helpers
-        │   └───protocols
-        └───routes
+    │   ├───models
+    │   └───usecases
+    ├───infra
+    │   ├───cryptography
+    │   ├───db
+    │   │   └───mongodb
+    │   └───validators
+    ├───main
+    │   ├───adapters
+    │   ├───config
+    │   ├───factories
+    │   │   ├───controllers
+    │   │   ├───middlewares
+    │   │   └───usecases
+    │   ├───middleware
+    │   └───routes
+    ├───presentation
+    │   ├───controllers
+    │   ├───errors
+    │   ├───helpers
+    │   ├───middlewares
+    │   └───protocols
+    ├───utils
+    └───validation
+        ├───protocols
+        └───validators
 ```
 
 The entry point is the [server.ts](./src/main/server.ts) file.
 Each route is a file placed in the [routes](./src/main/routes/) folder.
 Routes are created using a Controller, that is generated trough [factories](./src/main/factories/).
-Data is where info related to external info is stored, we have a [protocols](./src/data/protocols/) to create contracts, and [usecases](./src/data/usecases/) to create our classes.
+[Data](./src/data) is where info related to external info is stored, we have a [protocols](./src/data/protocols/) to create contracts, and [usecases](./src/data/usecases/) to create our classes.
 In the Domain folder, we set our [models](./src/domain/models/), that are our responsability.
-
-# Vaga para Desenvolvedor Júnior
-
-Você deve construir uma pequena aplicação de e-commerce de acordo com o seguinte contexto: uma loja quer montar um site para vender seus produtos. Essa loja possui 2 fornecedores, que construíram uma API para você consumir e listar todos os produtos disponíveis nesta loja. O cliente deve ser capaz de filtrar e pesquisar por produtos específicos enquanto acessa o site. É importante que todos os produtos selecionados vão para um carrinho de compras. Além disso, você precisará registrar em um banco de dados cada compra realizada nesta loja com os dados do cliente e dos produtos comprados.
-
-Lembre-se que este é um teste para desenvolvimento fullstack, então esperamos que você:
-
-- Construa uma API, com Node ou com o framework PHP Laravel
-- Construa uma aplicação frontend web com Flutter
-
-Você pode usar quaisquer bibliotecas, templates prontos ou ferramentas que te auxiliem a desenvolver esse projeto. Fique a vontade para desenvolver essa aplicação da forma que quiser, desde que siga nossos requisitos e atenda o objetivo descrito.
-
-<aside>
-💡 O prazo para entrega do projeto é até o dia 10/02/2023
-
-</aside>
-
-Além do código queremos saber como foi o seu processo de desenvolvimento, para isso crie um arquivo README.md e nos explique resumidamente a sua tomada de decisões. Também é importante que este arquivo README.md contenha os passos para instalação do seu projeto.
-
-## API dos Fornecedores:
-
-### Fornecedor 1
-
-- Para buscar todos os produtos
-
-[GET] [http://616d6bdb6dacbb001794ca17.mockapi.io/devnology/brazilian_provider](http://616d6bdb6dacbb001794ca17.mockapi.io/devnology/brazilian_provider)
-
-- Para buscar um produto pelo ID
-
-[GET] [http://616d6bdb6dacbb001794ca17.mockapi.io/devnology/brazilian_provider/1](http://616d6bdb6dacbb001794ca17.mockapi.io/devnology/brazilian_provider/1)
-
-### Fornecedor 2
-
-- Para buscar todos os produtos
-
-[GET] [http://616d6bdb6dacbb001794ca17.mockapi.io/devnology/european_provider](http://616d6bdb6dacbb001794ca17.mockapi.io/devnology/european_provider)
-
-- Para buscar um produto pelo ID
-
-[GET] [http://616d6bdb6dacbb001794ca17.mockapi.io/devnology/european_provider/1](http://616d6bdb6dacbb001794ca17.mockapi.io/devnology/european_provider/1)
+The [Infra](./src/infra) is where all info that connects with the database is stored.
