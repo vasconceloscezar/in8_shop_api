@@ -2,23 +2,26 @@
 
 This API fetches product data from external providers and have routes for purchasing and product filtering.
 
-> ## Table of Contents
+> [Confira esse readme em português](./README_pt-BR.md)
+## Table of Contents
 
 - [Project Setup](#project-setup)
 - [Project Decisions](#project-decisions)
 - [Project Dependencies](#project-dependencies)
 - [Project Structure](#project-structure)
 
-> ## How to run this project <a name="project-setup">
+## How to run this project <a name="project-setup">
 
 First clone this repo on your local machine. 
 We have two options for running the project: 
 - [Via Docker](#using-docker)
 - [Locally with node](#using-node)
 
-Also you will need an [MongoDB](https://www.mongodb.com/docs/manual/installation/) server running, and put the URI connection string in a `.ENV` file on the root folder of the project. 
 
-If you want to use a Docker image of MongoDB, just follow the [Via Docker](#using-docker) instructions.
+For the database, it is currently being used on [MongoDB Atlas](https://www.mongodb.com/atlas/database), so there is no need to set up manually.
+But if you want it to, you will need: 
+- An [MongoDB](https://www.mongodb.com/docs/manual/installation/) server running, and put the URI connection string in a `.ENV` file on the root folder of the project. 
+- If you want to use a Docker image of MongoDB, just follow the [Via Docker](#using-docker) instructions.
 
 ### Using Docker <a name="using-docker">
 
@@ -48,7 +51,7 @@ And it should show a message:
 Server running at http://localhost:3000
 ```
 
-- MongoDB instance: 
+- MongoDB instance: <b>(Not needed if running from Mongo Atlas)</b>
 We just need to pull the image from the use the [official MongoDB image on Docker hub](https://hub.docker.com/_/mongo), and run it: 
 ```bash
 docker pull mongodb:latest
@@ -74,7 +77,7 @@ npm start
 
 By default the server will run at port 3000.
 
-> ## Project Decisions <a name="project-decisions"></a>
+## Project Decisions <a name="project-decisions"></a>
 
 ### Loading from providers
 
@@ -102,7 +105,7 @@ We are using `jsonwebtoken` to generate an `jwt` token to future access on our a
 
 To purchase items, users need to have an account and be logged in, and pass the `accessToken` via headers on the `/purchase` route. 
 
-> ## Project Dependencies <a name="project-dependencies"></a>
+## Project Dependencies <a name="project-dependencies"></a>
 
 A few dependencies were used in this project, some are worth mentioning:
 
@@ -114,7 +117,7 @@ A few dependencies were used in this project, some are worth mentioning:
 - [Docker](https://www.docker.com), for containerize our application. 
 - [MongoDB](https://www.mongodb.com/docs/manual/installation/), as our database.
 
-> ## Project Structure <a name="project-structure"></a>
+## Project Structure <a name="project-structure"></a>
 
 ```bash
 └───src
