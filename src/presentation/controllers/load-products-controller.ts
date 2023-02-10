@@ -1,5 +1,5 @@
 import { type ProductProvider } from '@/data/protocols'
-import { type MemoryCache } from '@/data/protocols/memory-cache'
+import { type MemoryCache } from '@/domain/models/memory-cache'
 import { type Product } from '@/domain/models'
 import { sortProductsById } from '@/utils/sorter'
 import { ok, serverError } from '../helpers/http-helper'

@@ -1,5 +1,5 @@
+import { type MemoryCache } from '@/domain/models/memory-cache'
 import NodeCache from 'node-cache'
-import { type MemoryCache } from '../protocols/memory-cache'
 
 export class CacheService implements MemoryCache {
   private readonly cache: NodeCache

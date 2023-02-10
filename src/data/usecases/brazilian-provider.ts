@@ -1,6 +1,5 @@
-import { type Product } from '@/domain/models'
+import { type Product , type ProductProvider, type RequestResponse } from '@/domain/models'
 import env from '@/main/config/env'
-import { type ProductProvider, type RequestResponse } from '../protocols'
 
 export type ProductBrazilianProvider = {
   nome: string

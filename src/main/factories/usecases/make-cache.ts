@@ -1,4 +1,4 @@
-import { type MemoryCache } from '@/data/protocols/memory-cache'
+import { type MemoryCache } from '@/domain/models/memory-cache'
 import { CacheService } from '@/data/usecases/cache-service'
 
 export function makeCacheService (): MemoryCache {
